@@ -42,7 +42,12 @@ class Category(models.Model):
         else:
             return self.title
 
-    __str__ = __unicode__
+    def __str__(self):
+        if self.subtitle:
+            return "%s - %s" % (self.title, self.subtitle)
+        else:
+            return self.title
+    
 
     class Meta:
         ordering = ("title",)
